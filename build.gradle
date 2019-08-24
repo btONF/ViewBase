@@ -43,4 +43,6 @@ android {
 
 dependencies {
     compileOnly "org.jetbrains.kotlin:kotlin-stdlib:$project.KOTLIN"
+    api "com.android.support:design:$project.ANDROID_SUPPORT"
+
 }

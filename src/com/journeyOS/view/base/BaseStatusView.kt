@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.FrameLayout
 
 abstract class BaseStatusView: FrameLayout, View.OnClickListener {
-    var statusChangeListener: StatusChangeListener? = null
+    private var statusChangeListener: StatusChangeListener? = null
     var clickListener: OnClickListener? = null
     private var isChecked = false
     constructor(context: Context?) : this(context, null)
@@ -25,11 +25,17 @@ abstract class BaseStatusView: FrameLayout, View.OnClickListener {
         return isChecked
     }
 
+    fun setStatusChangeListener(statusChangeListener:StatusChangeListener?){
+        this.statusChangeListener = statusChangeListener
+        setStatus(isChecked)
+    }
     override fun onClick(p0: View?) {
         setStatus(!isChecked)
         clickListener?.onClick(p0)
     }
-    abstract fun init(attrs: AttributeSet?)
+    open fun init(attrs: AttributeSet?){
+        setOnClickListener(this)
+    }
     abstract fun onStatusChanged(isChecked: Boolean)
 
     interface StatusChangeListener{

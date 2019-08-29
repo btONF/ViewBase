@@ -7,8 +7,8 @@ android {
     buildToolsVersion project.ANDROID_BUILD_TOOLS_VERSION
 
     defaultConfig {
-        minSdkVersion Integer.parseInt(project.ANDROID_BUILD_SDK_VERSION)
-        targetSdkVersion Integer.parseInt(project.ANDROID_BUILD_MIN_SDK_VERSION)
+        minSdkVersion Integer.parseInt(project.ANDROID_BUILD_MIN_SDK_VERSION)
+        targetSdkVersion Integer.parseInt(project.ANDROID_BUILD_SDK_VERSION)
         versionCode Integer.parseInt(project.ANDROID_BUILD_VERSION_CODE)
         versionName project.ANDROID_BUILD_VERSION_NAME
     }
@@ -43,6 +43,6 @@ android {
 
 dependencies {
     compileOnly "org.jetbrains.kotlin:kotlin-stdlib:$project.KOTLIN"
-    api "com.android.support:design:$project.ANDROID_SUPPORT"
+    api "com.google.android.material:material:$project.GOOGLE_MATERIAL"
 
 }
